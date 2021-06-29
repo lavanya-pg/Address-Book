@@ -1,20 +1,21 @@
 package address;
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Add
-{	
+public class Add 
+{
 	static Scanner sc = new Scanner(System.in);
-	static ArrayList<Contact> contactList = new ArrayList<>();
+    static ArrayList<Contact> contactList = new ArrayList<>();
 		   
 		    public static void main(String[] args) 
 		    {
-
-		        System.out.println("Welcome to the Address book program"); // Welcome statement
+		    	// Welcome message
+		        System.out.println("Welcome to the Address book program"); 
 		        Add add = new Add();
-		        add.addContactList();
+		        add.addingContactList();
 		    }
 		    
-		    public void display(ArrayList<Contact> contactList)//Display Address book
+		    // Displaying Address book
+		    public void display(ArrayList<Contact> contactList)
 		   {
 		        for (Contact contact : contactList) 
 		        {
@@ -22,44 +23,74 @@ public class Add
 		        }
 		    }
 		    
-		  
-		    public void addContact(Contact contactItems, ArrayList<Contact> contactList) {
+		    // method to choose an option	
+		    public void addingContactList() {
+		        while (true) {
+		            System.out.println("Press 0 - Display all contacts");
+		            System.out.println("Press 1 - Add contact");
+		            System.out.println("Press 2 - Edit contact");
+		            System.out.println("Press 3 - Delete contact");
+		            System.out.println("Press 4 - Exit");
+		            int option = sc.nextInt();
+		            sc.nextLine();
 
-		        contactItems = new Contact();
+		            switch (option) {
+		                case 0 -> display(contactList);
+		                case 1 -> addingContact(null, contactList);
+		                case 2 -> editContact();
+		                case 3 -> deletingContact(contactList);
+		            }
+		            if (option == 4) {
+		                break;
+		            }
+		        }
+		    }
+		    
+		    // adding contacts to addBook
+		    public void addingContact(Contact contact, ArrayList<Contact> contactList) {
+
+		        contact = new Contact();
 
 		        System.out.println("Enter first name : ");
-		        contactItems.firstName = sc.next();
+		        contact.firstName = sc.next();
 
 		        System.out.println("Enter last name : ");
-		        contactItems.lastName = sc.next();
+		        contact.lastName = sc.next();
 
 		        System.out.println("Enter address : ");
-		        contactItems.address = sc.next();
+		        contact.address = sc.next();
 		       
 
 		        System.out.println("Enter city : ");
-		        contactItems.city = sc.next();
+		        contact.city = sc.next();
 
 		        System.out.println("Enter state : ");
-		        contactItems.state = sc.next();
+		        contact.state = sc.next();
 
 		        System.out.println("Enter zip code : ");
-		        contactItems.zip = sc.nextInt();
+		        contact.zip = sc.nextInt();
 
 		        System.out.println("Enter phone number : ");
-		        contactItems.phoneNumber = sc.nextLong();
+		        contact.phoneNumber = sc.nextLong();
 
 		        System.out.println("Enter email : ");
-		        contactItems.email = sc.next();
+		        contact.email = sc.next();
 
-		        contactList.add(contactItems);
+		        contactList.add(contact);
 
 		    }
-
-			
+	   
+		    // method for deleting contact in addBook
+		    public void deletingContact(ArrayList<Contact> contactList) 
+		    {
+		        System.out.println("Enter the first name of the contact you wish to delete");
+		        String delete = sc.next();
+		        contactList.removeIf(contact -> contact.firstName.equals(delete));   
+		    }
+		    
+			// method for editing contact in addBook
 		    public void editContact() 
 			{
-
 		        System.out.println("Enter the first name of contact you wish to edit");
 		        String edit = sc.nextLine();
 		        System.out.println("Press 1 - To edit first name");
@@ -135,25 +166,5 @@ public class Add
 		                }
 		            }
 		        }
-		    }
-
-		 	
-		      public void addContactList() {
-		        while (true) {
-		            System.out.println("Press 0 - Display all contacts");
-		            System.out.println("Press 1 - Add contact");
-		            System.out.println("Press 2 - Edit contact");
-		            System.out.println("Press 6 - Exit");
-		            int option = sc.nextInt();
-		            sc.nextLine();
-
-		            switch (option) {
-		                case 0 -> display(contactList);
-		                case 1 -> addContact(null, contactList);
-		                case 2 -> editContact();
-		            }
-		            if (option == 6) {
-		                break;
-		            }
-		        }
-		    }
+		    }	   
+	}
