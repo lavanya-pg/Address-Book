@@ -111,6 +111,12 @@ public class Add
        System.out.println("Welcome to the Address Book System Program");
 	   Add user1 = new  Add();
 	   user1.contactDisplay();
+	   Add user2 = new  Add();
+	   System.out.println("\ndetails of user 2 is");
+	   user2.contactDisplay();
+	   Add user3 = new  Add();
+	   System.out.println("\ndetails of user 3 is");
+	   user3.contactDisplay();
 	}
 
 }
