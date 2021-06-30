@@ -18,7 +18,8 @@ public class Add
         	System.out.println("Press 3 - Delete contact");
             int choice = scanner.nextInt();
 
-            switch (choice) {
+            switch (choice)
+            {
                 case 1:
                     addContact(contact, contactArrayList);
                     break;
@@ -36,9 +37,8 @@ public class Add
 
         }
 
-        public static void addContact(Contact contact, ArrayList<Contact> contactArrayList) {
-        	
-        
+        public static void addContact(Contact contact, ArrayList<Contact> contactArrayList) 
+        {
             System.out.print("Enter first name: ");
             String firstName = scanner.next();
             contact.setFirstName(firstName);
@@ -112,9 +112,9 @@ public class Add
                     String email = scanner.next();
                     contact.setEmail(email);
 
-                    for (Contact c: contactArrayList) {
-                        System.out.println(c.getFirstName() + " " + c.getLastName() + " " + c.getAddress() + " " + c.getCity() + " " + c.getState() + " "  + c.getZipCode()
-                                + " " + c.getPhoneNumber() + " " + c.getEmail());
+                    for (Contact c: contactArrayList)
+                    {
+                        System.out.println(c.getFirstName() + " " + c.getLastName() + " " + c.getAddress() + " " + c.getCity() + " " + c.getState() + " "  + c.getZipCode()+ " " + c.getPhoneNumber() + " " + c.getEmail());
                     }
                 }
             }
@@ -134,5 +134,4 @@ public class Add
         	}
         }
 }
-}
-}	
+	

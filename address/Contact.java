@@ -2,9 +2,7 @@ package address;
 
 public class Contact
 {
-	public static void main(String[] args)
-	{
-		public Contact() {}
+	public Contact() {}
 	
 		String firstName, lastName, address, city, state, email;
 		    long phoneNumber, zipCode;
@@ -19,6 +17,7 @@ public class Contact
 		        this.email = email;
 		        this.phoneNumber = phoneNumber;
 		        this.zipCode = zipCode;
+		    }
 		        
 			public String getFirstName()
 			{
@@ -99,6 +98,4 @@ public class Contact
 		        this.zipCode = zipCode;
 		    }
 		 
-		    }
-		}
 		}
